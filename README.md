@@ -75,17 +75,17 @@ Design a multi-dimensional evaluation framework using:
 │                                                                 │
 │  STANDARD DIMENSIONS                                            │
 │  ├── D1: Format Compliance (Schema Validation)                  │
-│  ├── D2: Completeness (Entity Recall)                          │
-│  ├── D3: Factual Accuracy (Entity Precision)                   │
-│  └── D4: Faithfulness (Semantic Grounding)                     │
+│  ├── D2: Completeness (Entity Recall)                           │
+│  ├── D3: Factual Accuracy (Entity Precision)                    │
+│  └── D4: Faithfulness (Semantic Grounding)                      │
 │                                                                 │
 │  NOVEL TECHNIQUES                                               │
-│  ├── CIW: Clinical Importance Weighting                        │
-│  └── HCR: Hallucination Category Rate                          │
+│  ├── CIW: Clinical Importance Weighting                         │
+│  └── HCR: Hallucination Category Rate                           │
 │                                                                 │
 │  SKIPPED                                                        │
-│  ├── D5: Numerical Accuracy (No structured numeric data)       │
-│  └── D6: Linguistic Quality (EHRs are terse by design)         │
+│  ├── D5: Numerical Accuracy (No structured numeric data)        │
+│  └── D6: Linguistic Quality (EHRs are terse by design)          │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -164,7 +164,7 @@ Each allergy object has 'name', 'status' fields
 3. **Full-Text Search** - Searches ALL fields (name, notes, values), not just names
 
 **Why Full-Text Search?**
-EHRs store information in multiple places. "rash" might appear in a `notes` field, not the `name` field:
+- EHRs store information in multiple places. "rash" might appear in a `notes` field, not the `name` field:
 ```json
 {
   "name": "gestronol",
@@ -420,7 +420,7 @@ Faithfulness = 0.5 × Lexical_Grounding + 0.5 × BERTScore
 
 ### Novel 1: Clinical Importance Weighting (CIW)
 
-**Problem Addressed:** Standard completeness treats all entities equally, but:
+**Problem Addressed:** Standard **COMPLETENESS** treats all entities equally, but:
 - Missing **"penicillin allergy"** → potentially fatal anaphylaxis
 - Missing **"avoid oily food"** → minor inconvenience
 
@@ -576,9 +576,9 @@ Results are presented as individual dimension scores because:
 
 ### Framework Contributions
 
-**Multi-dimensional evaluation** - Comprehensive quality assessment
-**Novel techniques** - CIW and HCR provide clinical insights
-**Actionable insights** - Category-level error analysis
+- **Multi-dimensional evaluation** - Comprehensive quality assessment
+- **Novel techniques** - CIW and HCR provide clinical insights
+- **Actionable insights** - Category-level error analysis
 
 ---
 
